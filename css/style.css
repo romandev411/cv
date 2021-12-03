@@ -1,7 +1,18 @@
 :root {
-    --base-font: 16px;
+    --base-size: 100%;
 }
 
 html {
-    font-size: var(--base-font)
+    font-size: var(--base-size)
+}
+
+body {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.cv {
+    width: 64rem;
+    background-color: pink;
+    margin: 0 auto;
 }

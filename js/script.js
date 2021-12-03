@@ -5,15 +5,41 @@ class CreateCv {
         this.pixel = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
         this.settings = {
             lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
-            size: '100',
+            size: localStorage.getItem('size') ? localStorage.getItem('size') : '100',
             theme: 'light',
-            fullScreen: false,
+            fullScreen: {
+                size: null,
+                status: false,
+                oldSize: null,
+            },
         }
     }
 
     init() {
         this.renderTemplate(this.template(this.data[this.settings.lang]));
         this.renderTemplate(this.templateControl(this.data[this.settings.lang]));
+        this.setSize(this.settings.size);
+        this.setFullScreen();
+    }
+
+    setFullScreen() {
+        const w = document.documentElement.clientWidth;
+        const fZ = parseInt(getComputedStyle(document.body, '').fontSize);
+
+        // console.log(fZ);
+        // console.log(w / fZ/ 64 * 100);
+
+        this.updateSetting({
+            fullScreen: {
+                size: (w / fZ/ 64 * 100) + '%',
+            },
+        });
+    }
+
+    fullScreen() {
+        console.log(this.settings)
+
+        this.setSize(this.settings.fullScreen.size);
     }
 
     renderTemplate(template) {
@@ -41,9 +67,37 @@ class CreateCv {
         this.renderTemplate(this.templateControl(this.data[this.settings.lang]));
     }
 
-    sizePlus() {
-        console.log('+')
-        const footer = document.querySelector('html');
+    setSize(size) {
+        const elem = document.querySelector('html');
+        elem.style.setProperty('--base-size', size);
+    }
+
+    updateSize(sing, size) {
+        if (sing === '+') {
+            localStorage.setItem('size', `${parseFloat(this.settings.size) + 10}%`);
+        } else if (sing === '-') {
+            localStorage.setItem('size', `${parseFloat(this.settings.size) - 10}%`);
+        } else {
+            localStorage.setItem('size', size ? size : '100%');
+        }
+
+        this.updateSetting({
+            size: localStorage.getItem('size'),
+        });
+
+        this.setSize(this.settings.size);
+
+        this.valueSize();
+    }
+
+    valueSize() {
+        document.querySelector('.size-input').value = this.settings.size;
+    }
+
+    changeSize() {
+        document.querySelector('.size-input'),addEventListener('change', (e) => {
+            this.updateSize('', parseFloat(e.target.value) + '%');
+        })
     }
 
     templateControl(data) {
@@ -55,8 +109,17 @@ class CreateCv {
                 </div>
 
                 <div>
-                    <button class="button-size" type="button" onclick="addCv.sizeMinus()"> minus lang</button>
-                    <button class="button-size" type="button" onclick="addCv.sizePlus()">plus lang</button>
+                    <button class="button-size" type="button" onclick="addCv.updateSize('-')"> minus </button>
+
+                    <input class="size-input" type="text" value="${this.settings.size}" onchange="addCv.changeSize()">
+
+                    
+                    <button class="button-size" type="button" onclick="addCv.updateSize('+')">plus </button>
+                    <button class="button-size" type="button" onclick="addCv.updateSize()">reset size </button>
+                </div>
+
+                <div>
+                    <button class="button-lang" type="button" onclick="addCv.fullScreen()">fullScreen</button>
                 </div>
             </div>
         `;
