@@ -7,11 +7,7 @@ class CreateCv {
             lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
             size: localStorage.getItem('size') ? localStorage.getItem('size') : '100',
             theme: 'light',
-            fullScreen: {
-                size: null,
-                status: false,
-                oldSize: null,
-            },
+            fullScreen: null,
         }
     }
 
@@ -25,21 +21,15 @@ class CreateCv {
     setFullScreen() {
         const w = document.documentElement.clientWidth;
         const fZ = parseInt(getComputedStyle(document.body, '').fontSize);
-
-        // console.log(fZ);
-        // console.log(w / fZ/ 64 * 100);
+        const widthContent =  document.querySelector('.cv').offsetWidth / fZ;
 
         this.updateSetting({
-            fullScreen: {
-                size: (w / fZ/ 64 * 100) + '%',
-            },
+            fullScreen: (w / fZ/ widthContent * parseFloat(this.settings.size)) + '%',
         });
     }
 
     fullScreen() {
-        console.log(this.settings)
-
-        this.setSize(this.settings.fullScreen.size);
+        this.setSize(this.settings.fullScreen);
     }
 
     renderTemplate(template) {
