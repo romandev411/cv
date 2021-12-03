@@ -4,7 +4,7 @@ class CreateCv {
         this.parent = parent;
         this.pixel = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
         this.settings = {
-            lang: 'en',
+            lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
             size: '100',
             theme: 'light',
             fullScreen: false,
@@ -20,23 +20,44 @@ class CreateCv {
         document.querySelector(this.parent).insertAdjacentHTML('afterbegin', template)
     }
 
-    updateSetting() {
-
+    updateSetting(settings) {
+        this.settings = Object.assign(this.settings, settings);
     }
 
-    enLang() {
-        this.renderTemplate(this.template(this.data['en']));
+    editLang(lang) {
+        if (this.settings.lang === lang) {
+            return;
+        }
+
+        localStorage.setItem('lang', lang);
+
+        this.updateSetting({
+            lang: localStorage.getItem('lang'),
+        });
+
+        document.querySelector(this.parent).textContent = '';
+
+        this.renderTemplate(this.template(this.data[this.settings.lang]));
+        this.renderTemplate(this.templateControl(this.data[this.settings.lang]));
     }
 
-    ruLang() {
-        this.renderTemplate(this.template(this.data['ru']));
+    sizePlus() {
+        console.log('+')
+        const footer = document.querySelector('html');
     }
 
     templateControl(data) {
         return `
             <div class="control-panel">
-                <button type="button" onclick="addCv.enLang()">en lang</button>
-                <button type="button" onclick="addCv.ruLang()">ru lang</button>
+                <div>
+                    <button class="button-lang" type="button" onclick="addCv.editLang('en')">en lang</button>
+                    <button class="button-lang" type="button" onclick="addCv.editLang('ru')">ru lang</button>
+                </div>
+
+                <div>
+                    <button class="button-size" type="button" onclick="addCv.sizeMinus()"> minus lang</button>
+                    <button class="button-size" type="button" onclick="addCv.sizePlus()">plus lang</button>
+                </div>
             </div>
         `;
     }
@@ -396,7 +417,7 @@ const data = {
             textTime: '6/7/2019 ',
             robotTime: '6-7-2019 '
         },
-        name: 'Роман Юрченко',
+        name: 'Roman Yurchenko',
         position: 'Front-end web developer',
         aside: {
             title: 'Контакты',
@@ -563,6 +584,6 @@ const data = {
     }
 };
 
-const addCv = new CreateCv('body', data)
+const addCv = new CreateCv('.app', data)
 
 document.addEventListener('DOMContentLoaded', addCv.init());
