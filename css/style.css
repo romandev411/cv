@@ -1,9 +1,12 @@
-:root {
+html {
     --base-size: 100%;
+    font-size: var(--base-size);
 }
 
-html {
-    font-size: var(--base-size)
+@media print {
+    html {
+        font-size: 100%;
+    }
 }
 
 body {
@@ -11,8 +14,24 @@ body {
     margin: 0;
 }
 
+.control-panel {
+
+}
+
+@media print {
+    .control-panel {
+        display: none;
+    }
+}
+
 .cv {
-    width: 64rem;
+    width: 100%;
+    max-width: 64rem;
     background-color: pink;
     margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    box-shadow: 10px 10px 10px red;
 }
