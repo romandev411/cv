@@ -13,7 +13,6 @@ class CreateCv {
 
     init() {
         this.renderTemplate(this.template(this.data[this.settings.lang]));
-        this.renderTemplate(this.templateControl(this.data[this.settings.lang]));
         this.setSize(this.settings.size);
         this.setFullScreen();
     }
@@ -23,13 +22,16 @@ class CreateCv {
         const fZ = parseInt(getComputedStyle(document.body, '').fontSize);
         const widthContent =  document.querySelector('.cv').offsetWidth / fZ;
 
+        const fullSize = w / fZ/ widthContent * parseFloat(this.settings.size);
+
         this.updateSetting({
-            fullScreen: (w / fZ/ widthContent * parseFloat(this.settings.size)) + '%',
+            fullScreen: fullSize,
+            size: fullSize,
         });
     }
 
     fullScreen() {
-        this.setSize(this.settings.fullScreen);
+        this.updateSize('', this.settings.fullScreen)
     }
 
     renderTemplate(template) {
@@ -54,19 +56,18 @@ class CreateCv {
         document.querySelector(this.parent).textContent = '';
 
         this.renderTemplate(this.template(this.data[this.settings.lang]));
-        this.renderTemplate(this.templateControl(this.data[this.settings.lang]));
     }
 
     setSize(size) {
         const elem = document.querySelector('html');
-        elem.style.setProperty('--base-size', size);
+        elem.style.setProperty('--base-size', size + '%');
     }
 
     updateSize(sing, size) {
         if (sing === '+') {
-            localStorage.setItem('size', `${parseFloat(this.settings.size) + 10}%`);
+            localStorage.setItem('size', `${parseFloat(this.settings.size) + 10}`);
         } else if (sing === '-') {
-            localStorage.setItem('size', `${parseFloat(this.settings.size) - 10}%`);
+            localStorage.setItem('size', `${parseFloat(this.settings.size) - 10}`);
         } else {
             localStorage.setItem('size', size ? size : '100%');
         }
@@ -77,17 +78,21 @@ class CreateCv {
 
         this.setSize(this.settings.size);
 
-        this.valueSize();
+        this.valueSize(this.settings.size);
     }
 
-    valueSize() {
-        document.querySelector('.size-input').value = this.settings.size;
+    valueSize(size) {
+        document.querySelector('.size-input').value = parseFloat(size).toFixed(0) + '%';
     }
 
     changeSize() {
         document.querySelector('.size-input'),addEventListener('change', (e) => {
-            this.updateSize('', parseFloat(e.target.value) + '%');
+            this.updateSize('', parseFloat(e.target.value));
         })
+    }
+
+    toggleTheme() {
+        document.querySelector('body').classList.toggle('dark');
     }
 
     templateControl(data) {
@@ -101,7 +106,7 @@ class CreateCv {
                 <div>
                     <button class="button-size" type="button" onclick="addCv.updateSize('-')"> minus </button>
 
-                    <input class="size-input" type="text" value="${this.settings.size}" onchange="addCv.changeSize()">
+                    <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="addCv.changeSize()">
 
                     
                     <button class="button-size" type="button" onclick="addCv.updateSize('+')">plus </button>
@@ -111,12 +116,18 @@ class CreateCv {
                 <div>
                     <button class="button-lang" type="button" onclick="addCv.fullScreen()">fullScreen</button>
                 </div>
+
+                <div>
+                    <button class="button-lang" type="button" onclick="addCv.toggleTheme()">theme</button>
+                </div>
             </div>
         `;
     }
 
     template(data) {
         return `
+            ${this.templateControl(data)}
+
             <div class="cv">
                 <header class="header">
                     <div class="header__top">
