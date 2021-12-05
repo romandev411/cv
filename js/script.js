@@ -14,7 +14,6 @@ class CreateCv {
     init() {
         this.renderTemplate(this.template(this.data[this.settings.lang]));
         this.setSize(this.settings.size);
-        this.setFullScreen();
     }
 
     setFullScreen() {
@@ -31,6 +30,7 @@ class CreateCv {
     }
 
     fullScreen() {
+        this.setFullScreen();
         this.updateSize('', this.settings.fullScreen)
     }
 
