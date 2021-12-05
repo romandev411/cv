@@ -35,6 +35,7 @@ body {
     z-index: 1;
     height: inherit;
     width: 100%;
+    padding: 0 16px;
     background-color: #323639;
     color: #fff;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.09),
@@ -62,6 +63,8 @@ body {
 }
 
 .cv__wrap {
+    display: flex;
+    flex-wrap: wrap;
     padding-left: 3rem;
     padding-right: 1.5rem;
     padding-top: 1.5rem;
@@ -79,10 +82,24 @@ body {
 
 .header {
     display: flex;
+    width: 100%;
 }
 
 @media print {
     .header__top {
         display: none;
     }
+}
+
+.aside__contact-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.aside {
+    width: 30%;
+}
+
+.main {
+    width: 70%;
 }

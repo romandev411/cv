@@ -104,26 +104,30 @@ class CreateCv {
                     </div>
 
                     <div>
-                        <button class="button-lang" type="button" onclick="addCv.editLang('en')">en lang</button>
-                        <button class="button-lang" type="button" onclick="addCv.editLang('ru')">ru lang</button>
+                        <button class="button-lang" type="button" onclick="app.editLang('en')">en lang</button>
+                        <button class="button-lang" type="button" onclick="app.editLang('ru')">ru lang</button>
                     </div>
 
                     <div>
-                        <button class="button-size" type="button" onclick="addCv.updateSize('-')"> minus </button>
+                        <button class="button-size" type="button" onclick="app.updateSize('-')"> minus </button>
 
-                        <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="addCv.changeSize()">
+                        <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="app.changeSize()">
 
                         
-                        <button class="button-size" type="button" onclick="addCv.updateSize('+')">plus </button>
-                        <button class="button-size" type="button" onclick="addCv.updateSize()">reset size </button>
+                        <button class="button-size" type="button" onclick="app.updateSize('+')">plus </button>
+                        <button class="button-size" type="button" onclick="app.updateSize()">reset size </button>
                     </div>
 
                     <div>
-                        <button class="button-lang" type="button" onclick="addCv.fullScreen()">fullScreen</button>
+                        <button class="button-button" type="button" onclick="app.fullScreen()">fullScreen</button>
                     </div>
 
                     <div>
-                        <button class="button-lang" type="button" onclick="addCv.toggleTheme()">theme</button>
+                        <button class="button-button" type="button" onclick="app.toggleTheme()">theme</button>
+                    </div>
+
+                    <div>
+                        <button class="button" type="button" onclick="print()">print</button>
                     </div>
                 </div>
             </div>
@@ -658,10 +662,6 @@ const data = {
     }
 };
 
-const addCv = new CreateCv('.app', data)
+const app = new CreateCv('.app', data)
 
-document.addEventListener('DOMContentLoaded', addCv.init());
-
-window.addEventListener('mousewheel', (e) => {
-    window.devicePixelRatio * 100;
-});
+document.addEventListener('DOMContentLoaded', app.init());
