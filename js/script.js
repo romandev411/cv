@@ -97,40 +97,94 @@ class CreateCv {
 
     templateControl(data) {
         return `
-            <div class="control-panel">
+            <aside class="control-panel">
                 <div class="control-panel__wrap">
                     <div class="control-panel__title">
+                        <div class="control-panel__icon">
+                            <svg width="50" height="50">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#file"></use>
+                            </svg>
+                        </div>
+
                         ${data.titleHeader}
                     </div>
 
-                    <div>
-                        <button class="button-lang" type="button" onclick="app.editLang('en')">en lang</button>
-                        <button class="button-lang" type="button" onclick="app.editLang('ru')">ru lang</button>
+                    <div class="control-panel__size-content">
+                        <div class="control-panel__width-content">
+                            <button class="button-size" type="button" onclick="app.updateSize()">
+                                <span class="button-size__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#refresh"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+
+                        <span class="line">|</span>
+
+                        <div class="control-panel__zoom">
+                            <button class="button-size" type="button" onclick="app.updateSize('-')">
+                                <span class="button-size__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#minus"></use>
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="app.changeSize()">
+
+                            <button class="button-size" type="button" onclick="app.updateSize('+')">
+                                <span class="button-size__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+
+                        <span class="line">|</span>
+
+                        <div class="control-panel__width-content">
+                            <button class="button-size" type="button" onclick="app.fullScreen()">
+                                <span class="button-size__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fullscreen"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </div>
 
-                    <div>
-                        <button class="button-size" type="button" onclick="app.updateSize('-')"> minus </button>
+                    <div class="control-panel__right">
+                        <div class="control-panel__theme">
+                            <button class="button-button" type="button" onclick="app.toggleTheme()">theme</button>
+                        </div>
 
-                        <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="app.changeSize()">
+                        <div class="control-panel__lang-content">
+                            <button class="button-lang" type="button" onclick="app.editLang('en')">en lang</button>
+                            <button class="button-lang" type="button" onclick="app.editLang('ru')">ru lang</button>
+                        </div>
 
-                        
-                        <button class="button-size" type="button" onclick="app.updateSize('+')">plus </button>
-                        <button class="button-size" type="button" onclick="app.updateSize()">reset size </button>
-                    </div>
+                        <div class="control-panel__save">
+                            <button class="print-btn" type="button" onclick="print()">
+                                <span class="print-btn__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#save"></use>
+                                    </svg>
+                                </span>
 
-                    <div>
-                        <button class="button-button" type="button" onclick="app.fullScreen()">fullScreen</button>
-                    </div>
+                                <span class="line">|</span>
 
-                    <div>
-                        <button class="button-button" type="button" onclick="app.toggleTheme()">theme</button>
-                    </div>
-
-                    <div>
-                        <button class="button" type="button" onclick="print()">print</button>
+                                <span class="print-btn__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#print"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </aside>
         `;
     }
 
@@ -318,7 +372,7 @@ class CreateCv {
 const data = {
     ru: {
         title: 'Резюме Роман Юрченко',
-        titleHeader: 'CV Roman Yurchenko',
+        titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
             textTime: '6/7/2019 ',
             robotTime: '6-7-2019 '
@@ -490,7 +544,7 @@ const data = {
     },
     en: {
         title: 'cv Roman Yurchenko',
-        titleHeader: 'CV Roman Yurchenko',
+        titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
             textTime: '6/7/2019 ',
             robotTime: '6-7-2019 '
