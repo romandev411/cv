@@ -69,7 +69,7 @@ class CreateCv {
         } else if (sing === '-') {
             localStorage.setItem('size', `${parseFloat(this.settings.size) - 10}`);
         } else {
-            localStorage.setItem('size', size ? size : '100%');
+            localStorage.setItem('size', size ? size : '100');
         }
 
         this.updateSetting({
@@ -157,13 +157,43 @@ class CreateCv {
 
                     <div class="control-panel__right">
                         <div class="control-panel__theme">
-                            <button class="button-button" type="button" onclick="app.toggleTheme()">theme</button>
+                            <button class="button-theme" type="button" onclick="app.toggleTheme()">
+                                <span class="button-theme__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#theme"></use>
+                                    </svg>
+                                </span>
+                            </button>
                         </div>
 
+                        <span class="line">|</span>
+
                         <div class="control-panel__lang-content">
-                            <button class="button-lang" type="button" onclick="app.editLang('en')">en lang</button>
-                            <button class="button-lang" type="button" onclick="app.editLang('ru')">ru lang</button>
+                            <div class="lang-seelct">
+                                <span class="lang-seelct__icon">
+                                    <svg width="50" height="50">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lang"></use>
+                                    </svg>
+                                </span>
+
+                                <select class="lang-seelct__select" onchange="app.editLang(this.value)">
+                                    ${
+                                        this.settings.lang === 'en' ?
+                                        `
+                                            <option value="en">EN</option>
+                                            <option value="ru">RU</option>
+                                        `
+                                        :
+                                        `
+                                            <option value="ru">RU</option>
+                                            <option value="en">EN</option>
+                                        `
+                                    }
+                                </select>
+                            </div>
                         </div>
+
+                        <span class="line">|</span>
 
                         <div class="control-panel__save">
                             <button class="print-btn" type="button" onclick="print()">
@@ -173,7 +203,7 @@ class CreateCv {
                                     </svg>
                                 </span>
 
-                                <span class="line">|</span>
+                                <span class="line">/</span>
 
                                 <span class="print-btn__icon">
                                     <svg width="50" height="50">

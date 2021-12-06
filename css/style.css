@@ -134,6 +134,7 @@ body {
     align-items: center;
     padding: 5px;
     border-radius: 6px;
+    color: #c1c2c2;
 }
 
 .print-btn:hover {
@@ -197,4 +198,60 @@ body {
     background-color: #191b1c;
     text-align: center;
     font-size: 13px;
+}
+
+.button-theme {
+    display: flex;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    border-radius: 50%;
+    color: #c1c2c2;
+}
+
+.button-theme__icon {
+    width: 20px;
+    height: 20px;
+}
+
+.button-theme:hover {
+    background-color: rgba(255,255,255,.2);
+}
+
+.button-theme:active {
+    opacity: .7;
+}
+
+.dark .button-theme__icon {
+    transform: rotate(180deg);
+}
+
+.control-panel__lang-content {
+    padding: 0 8px;
+}
+
+.lang-seelct {
+    display: flex;
+    align-items: center;
+    color: #c1c2c2;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.lang-seelct__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.lang-seelct__select {
+    padding: 4px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.lang-seelct__select:hover {
+    background-color: rgba(255,255,255,.2);
 }
