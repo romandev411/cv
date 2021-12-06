@@ -413,7 +413,7 @@ class CreateCv {
 
 const data = {
     ru: {
-        title: 'Резюме Роман Юрченко',
+        title: 'CV Roman Yurchenko',
         titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
             textTime: '6/7/2019 ',
