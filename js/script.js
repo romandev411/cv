@@ -9,6 +9,7 @@ class CreateCv {
             theme: 'light',
             fullScreen: null,
         }
+        this.time();
     }
 
     init() {
@@ -93,6 +94,17 @@ class CreateCv {
 
     toggleTheme() {
         document.querySelector('body').classList.toggle('dark');
+    }
+
+    time() {
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+
+        today = mm + '/' + dd + '/' + yyyy;
+
+        return today;
     }
 
     templateControl(data) {
@@ -226,7 +238,7 @@ class CreateCv {
                 <div class="cv__wrap">
                     <header class="header">
                         <div class="header__top">
-                            <time class="header__time" datetime="${data.time.robotTime}">${data.time.textTime}</time>
+                            <time class="header__time" datetime="${this.time()}">${this.time()}</time>
                             <h1 class="header__title">${data.title}</h1>
                         </div>
 
@@ -573,7 +585,7 @@ const data = {
         footer: 'cv roman yurch'
     },
     en: {
-        title: 'cv Roman Yurchenko',
+        title: 'CV Roman Yurchenko',
         titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
             textTime: '6/7/2019 ',
