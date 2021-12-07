@@ -2,7 +2,7 @@ class CreateCv {
     constructor(parent, data) {
         this.data = data
         this.parent = parent;
-        this.pixel = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+        this.pixel = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
         this.settings = {
             lang: localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en',
             size: localStorage.getItem('size') ? localStorage.getItem('size') : '100',
@@ -66,9 +66,9 @@ class CreateCv {
 
     updateSize(sing, size) {
         if (sing === '+') {
-            localStorage.setItem('size', `${parseFloat(this.settings.size) + 10}`);
+            localStorage.setItem('size', `${parseFloat(this.settings.size) + 15}`);
         } else if (sing === '-') {
-            localStorage.setItem('size', `${parseFloat(this.settings.size) - 10}`);
+            localStorage.setItem('size', `${parseFloat(this.settings.size) - 15}`);
         } else {
             localStorage.setItem('size', size ? size : '100');
         }
@@ -266,13 +266,17 @@ class CreateCv {
                                             ${el.slug == 'portfolio' ?
                                             `
                                             <div class="aside__contact-icon">
-                                                <div class="pixel">
+                                                <div class="pixel aside__icon--pixel">
                                                     ${this.pixel.map((el, index) => {
                                                         return `
-                                                            <span class="item${index}"></span>
+                                                            <span class="item${index + 1}"></span>
                                                         `
                                                     }).join('')}
                                                 </div>
+
+                                                <svg class="aside__icon aside__icon--print" width="50" height="50">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#${el.slug}"></use>
+                                                </svg>
                                             </div>
                                             `
                                             :
@@ -307,7 +311,7 @@ class CreateCv {
                     </aside>
 
                     <main class="main">
-                        <section class="skills">
+                        <section class="skills main__item">
                             <h2 class="title skills__title">${data.skills.title}</h2>
 
                             <ul class="skills__list">
@@ -319,30 +323,30 @@ class CreateCv {
                             </ul>
                         </section>
 
-                        <section class="experience">
-                            <h2 class="title experience__title">${data.experience.title}</h2>
+                        <section class="experience main__item">
+                            <h2 class="title experience__title-sect">${data.experience.title}</h2>
 
                             <ul class="experience__list">
                                 ${data.experience.list.map((el) => {
                                     return `
                                         <li class="experience__list-item">
                                             <div class="experience__item">
-                                                <strong class="experience__title">${el.company.title}</strong>
-                                                <p class="experience__text">${el.company.text} (<a href="${el.company.link}">${el.company.linkText}</a>)</p>
+                                                <strong class="experience__title">${el.company.title}:</strong>
+                                                <p class="experience__text">${el.company.text} <a class="experience__text-link" href="${el.company.link}">(${el.company.linkText})</a></p>
                                             </div>
 
                                             <div class="experience__item">
-                                                <strong class="experience__title">${el.period.title}</strong>
+                                                <strong class="experience__title">${el.period.title}:</strong>
                                                 <p class="experience__text">${el.period.text}</p>
                                             </div>
 
                                             <div class="experience__item">
-                                                <strong class="experience__title">${el.responsibilities.title}</strong>
+                                                <strong class="experience__title">${el.responsibilities.title}:</strong>
                                                 <p class="experience__text">${el.responsibilities.text}</p>
                                             </div>
 
                                             <div class="experience__item">
-                                                <strong class="experience__title">${el.technologies.title}</strong>
+                                                <strong class="experience__title">${el.technologies.title}:</strong>
                                                 <p class="experience__text">${el.technologies.text}</p>
                                             </div>
                                         </li>
@@ -351,7 +355,7 @@ class CreateCv {
                             </ul>
                         </section>
 
-                        <section class="languages">
+                        <section class="languages main__item">
                             <h2 class="title languages__title">${data.languages.title}</h2>
 
                             <ul class="languages__list">
@@ -371,7 +375,7 @@ class CreateCv {
                             </ul>
                         </section>
 
-                        <section class="education">
+                        <section class="education main__item">
                             <h2 class="title education__title">${data.education.title}</h2>
 
                             <ul class="education__list">
