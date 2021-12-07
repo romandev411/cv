@@ -1,4 +1,4 @@
-.pixel{
+.pixel {
     position: relative;
     width: 100%;
     height: 100%;
@@ -12,6 +12,43 @@
     width: 10em;
     height: 10em;
     position: absolute;
+}
+
+.dark .pixel {
+    animation:10s infinite pixel;
+}
+
+@keyframes pixel{
+    from{}
+    40%{
+        position: static;
+        font-size: .012rem;
+        color: inherit;
+    }
+
+    45%{
+        position: fixed;
+        font-size: .9vw;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        color: #000;
+    }
+    55%{
+        position: fixed;
+        font-size: .9vw;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        color: #000;
+    }
+
+    60%{
+        position: static;
+        font-size: .012rem;
+        color: inherit;
+    }
+    to{}
 }
 
 
