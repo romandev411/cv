@@ -440,17 +440,26 @@ body {
     color: var(--main-text-color);
 }
 
-.aside__icon--print {
+.aside__icon--pixel {
     display: none;
 }
 
-@media print {
-    .aside__icon--print {
-        display: block;
-    }
+.dark .aside__icon--pixel {
+    display: block;
+}
 
-    .aside__icon--pixel {
+.dark .aside__icon--print {
+    display: none;
+}
+
+
+@media print {
+    .dark .aside__icon--pixel {
         display: none;
+    }
+    
+    .dark .aside__icon--print {
+        display: block;
     }
 }
 

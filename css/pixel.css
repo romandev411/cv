@@ -120,6 +120,7 @@
 .item55{left:100em;top:70em  ;animation:10s infinite  item55 ;}
 .item56{left:50em;top:30em  ;animation:10s infinite  item56 ;}
 
+/* /
 
 @keyframes item1{
     from{left:20em;top:0;}
@@ -542,7 +543,7 @@
 
 /*---------2s---------*/
 
-
+/* /
 @keyframes item37{
     from{}
     40%{left:70em;top:40em   ;}
@@ -767,3 +768,5 @@
     60%{left:50em;top:30em }
     to{}
 }
+
+ */
