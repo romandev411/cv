@@ -123,7 +123,7 @@ class CreateCv {
 
                     <div class="control-panel__size-content">
                         <div class="control-panel__width-content">
-                            <button class="button-size" type="button" onclick="app.updateSize()">
+                            <button class="button-size" type="button" onclick="app.updateSize()" title="${data.control.refresh}">
                                 <span class="button-size__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#refresh"></use>
@@ -135,7 +135,7 @@ class CreateCv {
                         <span class="line">|</span>
 
                         <div class="control-panel__zoom">
-                            <button class="button-size" type="button" onclick="app.updateSize('-')">
+                            <button class="button-size" type="button" onclick="app.updateSize('-')" title="${data.control.min}">
                                 <span class="button-size__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#minus"></use>
@@ -145,7 +145,7 @@ class CreateCv {
 
                             <input class="size-input" type="text" value="${parseFloat(this.settings.size).toFixed(0) + '%'}" onchange="app.changeSize()">
 
-                            <button class="button-size" type="button" onclick="app.updateSize('+')">
+                            <button class="button-size" type="button" onclick="app.updateSize('+')" title="${data.control.max}">
                                 <span class="button-size__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
@@ -157,7 +157,7 @@ class CreateCv {
                         <span class="line">|</span>
 
                         <div class="control-panel__width-content">
-                            <button class="button-size" type="button" onclick="app.fullScreen()">
+                            <button class="button-size" type="button" onclick="app.fullScreen()" title="${data.control.full}">
                                 <span class="button-size__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fullscreen"></use>
@@ -169,7 +169,7 @@ class CreateCv {
 
                     <div class="control-panel__right">
                         <div class="control-panel__theme">
-                            <button class="button-theme" type="button" onclick="app.toggleTheme()">
+                            <button class="button-theme" type="button" onclick="app.toggleTheme()" title="${data.control.theme}">
                                 <span class="button-theme__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#theme"></use>
@@ -181,7 +181,7 @@ class CreateCv {
                         <span class="line">|</span>
 
                         <div class="control-panel__lang-content">
-                            <div class="lang-seelct">
+                            <div class="lang-seelct" title="${data.control.lang}">
                                 <span class="lang-seelct__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#lang"></use>
@@ -208,7 +208,7 @@ class CreateCv {
                         <span class="line">|</span>
 
                         <div class="control-panel__save">
-                            <button class="print-btn" type="button" onclick="print()">
+                            <button class="print-btn" type="button" onclick="print()" title="${data.control.load}">
                                 <span class="print-btn__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#save"></use>
@@ -375,6 +375,34 @@ class CreateCv {
                             </ul>
                         </section>
 
+                        <section class="achievements main__item">
+                            <h2 class="title achievements__title">${data.achievements.title}</h2>
+
+                            <ul class="achievements__list">
+                                ${data.achievements.list.map((el) => {
+                                    return `
+                                        <li class="achievements__list-item">
+                                            <div class="achievements__sub-title">
+                                                ${el.title}
+                                            </div>
+
+                                            <ul class="achievements__sublist">
+                                                ${el.items.map((el) => {
+                                                    return `
+                                                        <li class="achievements__sub-list-item">
+                                                            <a class="achievements__link" href="${el.link}">
+                                                                ${el.text}
+                                                            </a>
+                                                        </li>
+                                                    `
+                                                }).join('')}
+                                            </ul>
+                                        </li>
+                                    `
+                                }).join('')}
+                            </ul>
+                        </section>
+
                         <section class="education main__item">
                             <h2 class="title education__title">${data.education.title}</h2>
 
@@ -383,22 +411,22 @@ class CreateCv {
                                     return `
                                         <li class="education__list-item">
                                             <div class="education__item">
-                                                <strong class="education__title">${el.place.title}</strong>
+                                                <strong class="education__text-title">${el.place.title}</strong>
                                                 <p class="education__text">${el.place.text}</p>
                                             </div>
 
                                             <div class="education__item">
-                                                <strong class="education__title">${el.period.title}</strong>
+                                                <strong class="education__text-title">${el.period.title}</strong>
                                                 <p class="education__text">${el.period.text}</p>
                                             </div>
 
                                             <div class="education__item">
-                                                <strong class="education__title">${el.qualications.title}</strong>
+                                                <strong class="education__text-title">${el.qualications.title}</strong>
                                                 <p class="education__text">${el.qualications.text}</p>
                                             </div>
 
                                             <div class="education__item">
-                                                <strong class="education__title">${el.degree.title}</strong>
+                                                <strong class="education__text-title">${el.degree.title}</strong>
                                                 <p class="education__text">${el.degree.text}</p>
                                             </div>
                                         </li>
@@ -417,6 +445,15 @@ class CreateCv {
 
 const data = {
     ru: {
+        control: {
+            refresh: 'refresh',
+            min: 'min',
+            max: 'max',
+            full: 'max',
+            theme: 'theme',
+            lang: 'lamguage',
+            load: 'save / print',
+        },
         title: 'CV Roman Yurchenko',
         titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
@@ -584,11 +621,56 @@ const data = {
                         text: 'bakalavr',
                     },
                 },
+                {
+                    place: {
+                        title: 'University',
+                        text: 'usz',
+                    },
+                    period: {
+                        title: 'period',
+                        text: 'Jan 2018 - Aug 2018',
+                    },
+                    qualications: {
+                        title: 'qualications',
+                        text: 'Frontend-end Development',
+                    },
+                    degree: {
+                        title: 'degree',
+                        text: 'bakalavr',
+                    },
+                },
+            ],
+        },
+        achievements: {
+            title: 'achievements',
+            list: [
+               {
+                title: 'статьи на habr.com',
+                items: [
+                    {
+                        text: 'Организация отступов в верстке (margin/padding)',
+                        link: 'https://habr.com/ru/post/340420/',
+                    },
+                    {
+                        text: 'Кастомный подход для нормализации и сброса стилей (custom-reset.css)',
+                        link: 'https://habr.com/ru/post/420539/',
+                    },
+                ],
+               }
             ],
         },
         footer: 'cv roman yurch'
     },
     en: {
+        control: {
+            refresh: 'refresh',
+            min: 'min',
+            max: 'max',
+            full: 'max',
+            theme: 'theme',
+            lang: 'lamguage',
+            load: 'save / print',
+        },
         title: 'CV Roman Yurchenko',
         titleHeader: 'CV Roman Yurchenko.pdf',
         time: {
@@ -756,6 +838,42 @@ const data = {
                         text: 'bakalavr',
                     },
                 },
+                {
+                    place: {
+                        title: 'University',
+                        text: 'usz',
+                    },
+                    period: {
+                        title: 'period',
+                        text: 'Jan 2018 - Aug 2018',
+                    },
+                    qualications: {
+                        title: 'qualications',
+                        text: 'Frontend-end Development',
+                    },
+                    degree: {
+                        title: 'degree',
+                        text: 'bakalavr',
+                    },
+                },
+            ],
+        },
+        achievements: {
+            title: 'achievements',
+            list: [
+               {
+                title: 'статьи на habr.com',
+                items: [
+                    {
+                        text: 'Организация отступов в верстке (margin/padding)',
+                        link: 'https://habr.com/ru/post/340420/',
+                    },
+                    {
+                        text: 'Кастомный подход для нормализации и сброса стилей (custom-reset.css)',
+                        link: 'https://habr.com/ru/post/420539/',
+                    },
+                ],
+               }
             ],
         },
         footer: 'cv roman yurch'
