@@ -300,7 +300,7 @@ const data = {
                 {
                     title: 'Portfolio:',
                     slug: 'portfolio',
-                    el: 'Портфоліо',
+                    el: 'Portfolio',
                     attr: 'href="https://romandev411.github.io"',
                 },
             ],
