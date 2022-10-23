@@ -488,7 +488,6 @@ body {
 
 .experience__list-item .experience__item:first-child .experience__title {
     font-weight: 700;
-    text-transform: uppercase;
 }
 
 .experience__item:not(:last-child) {
