@@ -48,7 +48,7 @@ const data = {
                     title: 'Linkedin:',
                     slug: 'linkedin',
                     el: 'Linkedin',
-                    attr: 'href="https://github.com/romandev411"',
+                    attr: 'href="https://www.linkedin.com/in/romandev411"',
                 },
                 {
                     title: 'Github:',
@@ -283,7 +283,7 @@ const data = {
                     title: 'Linkedin:',
                     slug: 'linkedin',
                     el: 'Linkedin',
-                    attr: 'href="https://github.com/romandev411"',
+                    attr: 'href="https://www.linkedin.com/in/romandev411"',
                 },
                 {
                     title: 'Github:',
