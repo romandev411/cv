@@ -71,7 +71,7 @@ const data = {
             ],
         },
         skills: {
-            title: 'Техничні навики',
+            title: 'Технічні навики',
             list: [
                 'HTML / HTML5 / CSS / CSS3 / SASS / Flexboxes, Bootstrap, Material Design',
                 'JavaScript, ES6, React JS, Redux, Vuejs, Vuex',
