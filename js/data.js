@@ -1,13 +1,13 @@
 const data = {
     ua: {
         control: {
-            refresh: 'refresh',
-            min: 'min',
-            max: 'max',
-            full: 'max',
-            theme: 'theme',
-            lang: 'language',
-            load: 'save / print',
+            refresh: 'Стандартний розмір',
+            min: 'Зменшити',
+            max: 'Збільшити',
+            full: 'На весь єкран',
+            theme: 'Змінити тему',
+            lang: 'Мова',
+            load: 'Зберегти / Друк',
         },
         title: 'CV Roman Yurchenko',
         titleHeader: 'CV Roman Yurchenko.pdf',
@@ -18,20 +18,20 @@ const data = {
         name: 'Роман Юрченко',
         position: 'Front-end web developer',
         aside: {
-            title: 'Контакты',
+            title: 'Контакти',
             contacts: [
                 {
-                    title: 'Место проживания:',
+                    title: 'Місто проживання:',
                     slug: 'location',
-                    el: 'Украина, Киев',
+                    el: 'УкраЇна, КиЇв',
                     attr: '',
                 },
-                {
-                    title: 'Телефон:',
-                    slug: 'phone',
-                    el: '+38 097 875 03 17',
-                    attr: 'href="tel:+380978750317"',
-                },
+                // {
+                //     title: 'Телефон:',
+                //     slug: 'phone',
+                //     el: '+38 097 875 03 17',
+                //     attr: 'href="tel:+380978750317"',
+                // },
                 {
                     title: 'Email:',
                     slug: 'email',
@@ -41,7 +41,7 @@ const data = {
                 {
                     title: 'Telegram:',
                     slug: 'telegram',
-                    el: 'romandev411',
+                    el: '@romandev411',
                     attr: 'href="https://t.me/romandev411"',
                 },
                 {
@@ -65,98 +65,98 @@ const data = {
                 {
                     title: 'Портфолио:',
                     slug: 'portfolio',
-                    el: 'Портфолио',
+                    el: 'Портфоліо',
                     attr: 'href="https://romandev411.github.io"',
                 },
             ],
         },
         skills: {
-            title: 'Технические навыки',
+            title: 'Техничні навики',
             list: [
                 'HTML / HTML5 / CSS / CSS3 / SASS / Flexboxes, Bootstrap, Material Design',
-                'JavaScript, ES6, React JS, Redux, Redux-Observable, Redux-Saga, Websockets, jQuery',
-                'Node.js, Express.js, MongoDB, Redis, Jest, Enzyme',
-                'GIT, Bitbucket, Gulp, Webpack, Bower, Npm, Yarn',
-                'Gigma, Adobe Photoshop',
+                'JavaScript, ES6, React JS, Redux, Vuejs, Vuex',
+                'Node.js, Express.js, MongoDB',
+                'GIT, Bitbucket, Gulp, Webpack, Npm, Yarn',
+                'Figma, Adobe Photoshop',
                 'JIRA, Scrum',
             ],
         },
         experience: {
-            title: 'Опыт',
+            title: 'Досвід',
             list: [
                 {
                     company: {
-                        title: 'Company',
-                        text: 'Ciklum',
-                        link: 'Ciklum.com',
-                        linkText: 'Ciklum.com',
+                        title: 'Компанія',
+                        text: 'Kitcode',
+                        link: 'https://jobs.dou.ua/companies/kitcode/',
+                        linkText: 'jobs.dou.ua',
                     },
                     period: {
-                        title: 'period',
-                        text: 'Jan 2018 - Aug 2018',
+                        title: 'Період',
+                        text: 'Січ 2018 - Жовт 2022 (4р. 7міс.)',
                     },
                     responsibilities: {
-                        title: 'responsibilities',
-                        text: 'Support and expansion of the existing high-loaded trading platforms of the company, development of admin panels, bug xing',
+                        title: 'Обов\'язки',
+                        text: 'Підтримка та розширення існуючих проектів компанії, розробка адмін панелей.',
                     },
                     technologies: {
-                        title: 'technologies',
-                        text: 'Reactstrap, Material Design, Yarn, React.js, Redux, Redux-Observable, Websockets, Node.js',
+                        title: 'Технології',
+                        text: 'HTML/CSS, js, React, Redux, Vue, Vuex',
                     },
                 },
                 {
                     company: {
-                        title: 'Company',
-                        text: 'Ciklum',
-                        link: 'Ciklum.com',
-                        linkText: 'Ciklum.com',
+                        title: 'Компанія',
+                        text: 'Logic IT Solutions',
+                        link: 'https://jobs.dou.ua/companies/it-solutions/',
+                        linkText: 'jobs.dou.ua',
                     },
                     period: {
-                        title: 'period',
-                        text: 'from Aug 2018',
+                        title: 'Період',
+                        text: 'Трав. 2017 - Груд. 2017 (7міс.)',
                     },
                     responsibilities: {
-                        title: 'responsibilities',
-                        text: 'Support and expansion of the existing high-loaded trading platforms of the company, development of admin panels, bug xing',
+                        title: 'Обов\'язки',
+                        text: 'Верстка проектів/лендінгів, підтримка існуючих проектів компанії.',
                     },
                     technologies: {
-                        title: 'technologies',
-                        text: 'Reactstrap, Material Design, Yarn, React.js, Redux, Redux-Observable, Websockets, Node.js',
+                        title: 'Технології',
+                        text: 'HTML/CSS, js',
                     },
                 },
                 {
                     company: {
-                        title: 'Company',
-                        text: 'Ciklum',
-                        link: 'Ciklum.com',
-                        linkText: 'Ciklum.com',
+                        title: 'Компанія',
+                        text: 'Webstars',
+                        link: 'https://webstars.com.ua/',
+                        linkText: 'webstars.com.ua',
                     },
                     period: {
-                        title: 'period',
-                        text: 'Jan 2018 - Aug 2018',
+                        title: 'Період',
+                        text: 'Січ. 2016 - Трав. 2017 (7міс.)',
                     },
                     responsibilities: {
-                        title: 'responsibilities',
-                        text: 'Support and expansion of the existing high-loaded trading platforms of the company, development of admin panels, bug xing',
+                        title: 'Обов\'язки',
+                        text: 'Верстка проектів під CMS',
                     },
                     technologies: {
-                        title: 'technologies',
-                        text: 'Reactstrap, Material Design, Yarn, React.js, Redux, Redux-Observable, Websockets, Node.js',
+                        title: 'Технології',
+                        text: 'HTML/CSS, js, Bootstrap',
                     },
                 },
             ],
         },
         languages: {
-            title: 'languages',
+            title: 'Мови',
             list: [
                 {
                     title: 'English',
-                    level: 'B1',
+                    level: 'A2',
                 },
             ],
         },
         education: {
-            title: 'Образование',
+            title: 'Освіта',
             list: [
                 {
                     place: {
@@ -197,24 +197,24 @@ const data = {
             ],
         },
         achievements: {
-            title: 'achievements',
+            title: 'Досягнення',
             list: [
                {
-                title: 'статьи на habr.com',
+                title: 'Публікациї на habr.com',
                 items: [
                     {
-                        text: 'Организация отступов в верстке (margin/padding)',
+                        text: 'Організація відступів у верстці (margin/padding)',
                         link: 'https://habr.com/ru/post/340420/',
                     },
                     {
-                        text: 'Кастомный подход для нормализации и сброса стилей (custom-reset.css)',
+                        text: 'Кастомний підхід для нормалізації і скидання стилів (custom-reset.css)',
                         link: 'https://habr.com/ru/post/420539/',
                     },
                 ],
                }
             ],
         },
-        footer: 'cv roman yurch'
+        footer: 'CV Roman Yurchenko'
     },
     en: {
         control: {

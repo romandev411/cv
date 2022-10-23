@@ -486,6 +486,11 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.experience__list-item .experience__item:first-child .experience__title {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .experience__item:not(:last-child) {
     margin-bottom: 0.5rem;
 }
@@ -519,7 +524,7 @@ body {
 }
 
 .experience__text-link {
-    color: var(--main-text-color);
+    color: var(--link-color);
 }
 
 .aside__item {
@@ -583,7 +588,7 @@ body {
 }
 
 .achievements__sub-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
