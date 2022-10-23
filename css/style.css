@@ -218,6 +218,7 @@ body {
     color: #c1c2c2;
 }
 
+.button-size.active,
 .button-size:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }

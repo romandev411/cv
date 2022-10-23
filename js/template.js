@@ -49,7 +49,11 @@ class Template {
                         <span class="line">|</span>
 
                         <div class="control-panel__width-content">
-                            <button class="button-size" type="button" onclick="app.fullScreen()" title="${data.control.full}">
+                            <button class="button-size button-size-fullscreen ${this.settings.enableFullScreen === 'true' ? 'active': ''}" 
+                                type="button" 
+                                onclick="app.fullScreen()" 
+                                title="${data.control.full}"
+                            >
                                 <span class="button-size__icon">
                                     <svg width="50" height="50">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#fullscreen"></use>

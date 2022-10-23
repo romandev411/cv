@@ -9,6 +9,7 @@ class CreateCv extends Template {
             size: localStorage.getItem('size') ? localStorage.getItem('size') : '100',
             theme: 'light',
             fullScreen: null,
+            enableFullScreen: localStorage.getItem('enableFullScreen') || 'false',
         }
         this.time();
     }
@@ -32,8 +33,37 @@ class CreateCv extends Template {
     }
 
     fullScreen() {
+        if (this.settings.enableFullScreen === 'true') {
+            this.resetFullScreen();
+            return;
+        }
+
+        localStorage.setItem('enableFullScreen', 'true');
+        this.updateSetting({
+            enableFullScreen: localStorage.getItem('enableFullScreen'),
+        });
+        this.fullScreenActiveClass();
         this.setFullScreen();
         this.updateSize('', this.settings.fullScreen)
+    }
+
+    fullScreenActiveClass() {
+        const el = document.querySelector('.button-size-fullscreen');
+
+        if (this.settings.enableFullScreen === 'true') {
+            el.classList.add('active');
+        } else {
+            el.classList.remove('active');
+        }
+    }
+
+    resetFullScreen() {
+        localStorage.setItem('enableFullScreen', false);
+        this.updateSetting({
+            enableFullScreen: localStorage.getItem('enableFullScreen'),
+        });
+        this.updateSize('', 100);
+        this.fullScreenActiveClass();
     }
 
     renderTemplate(template) {
@@ -66,6 +96,14 @@ class CreateCv extends Template {
     }
 
     updateSize(sing, size) {
+        if (sing || !size) {
+            localStorage.setItem('enableFullScreen', false);
+            this.updateSetting({
+                enableFullScreen: localStorage.getItem('enableFullScreen'),
+            });
+            this.fullScreenActiveClass();
+        }
+
         if (sing === '+') {
             localStorage.setItem('size', `${parseFloat(this.settings.size) + 15}`);
         } else if (sing === '-') {
