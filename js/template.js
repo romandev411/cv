@@ -172,7 +172,7 @@ class Template {
 
                                             ${el.attr ?
                                             `
-                                            <a class="aside__link" ${el.attr} title="${el.title}">
+                                            <a class="aside__link" ${el.attr} title="${el.title}" target="_blank">
                                                 ${el.el}
                                             </a>
                                             ` 
@@ -213,7 +213,7 @@ class Template {
                                         <li class="experience__list-item">
                                             <div class="experience__item">
                                                 <strong class="experience__title">${el.company.title}:</strong>
-                                                <p class="experience__text">${el.company.text} <a class="experience__text-link" href="${el.company.link}">(${el.company.linkText})</a></p>
+                                                <p class="experience__text">${el.company.text} <a class="experience__text-link" target="_blank" href="${el.company.link}">(${el.company.linkText})</a></p>
                                             </div>
 
                                             <div class="experience__item">
@@ -271,7 +271,7 @@ class Template {
                                                 ${el.items.map((el) => {
                                                     return `
                                                         <li class="achievements__sub-list-item">
-                                                            <a class="achievements__link" href="${el.link}">
+                                                            <a class="achievements__link" href="${el.link}" target="_blank">
                                                                 ${el.text}
                                                             </a>
                                                         </li>

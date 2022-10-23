@@ -47,7 +47,7 @@ const data = {
                 {
                     title: 'Linkedin:',
                     slug: 'linkedin',
-                    el: 'linkedin',
+                    el: 'Linkedin',
                     attr: 'href="https://github.com/romandev411"',
                 },
                 {
@@ -160,37 +160,19 @@ const data = {
             list: [
                 {
                     place: {
-                        title: 'University',
-                        text: 'usz',
+                        title: 'Університет',
+                        text: 'Університет сучасних знань',
                     },
                     period: {
-                        title: 'period',
-                        text: 'Jan 2018 - Aug 2018',
+                        title: 'Період',
+                        text: '2012 - 2016',
                     },
                     qualications: {
-                        title: 'qualications',
-                        text: 'Frontend-end Development',
+                        title: 'Кваліфікації',
+                        text: 'Облік та аудит',
                     },
                     degree: {
-                        title: 'degree',
-                        text: 'bakalavr',
-                    },
-                },
-                {
-                    place: {
-                        title: 'University',
-                        text: 'usz',
-                    },
-                    period: {
-                        title: 'period',
-                        text: 'Jan 2018 - Aug 2018',
-                    },
-                    qualications: {
-                        title: 'qualications',
-                        text: 'Frontend-end Development',
-                    },
-                    degree: {
-                        title: 'degree',
+                        title: 'Ступінь',
                         text: 'bakalavr',
                     },
                 },
