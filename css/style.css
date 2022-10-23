@@ -36,10 +36,13 @@ html {
 
 .dark {
     --bg-main: #525659;
-    --bg-cv: #1f2228;
-    --main-text-color: #fff;
-    --border-color: #fff;
-    color: #fff;
+    --bg-cv: #1e1e1e;
+    --main-text-color: #bcbaba;
+    --sub-border-color: #363636;
+    --border-color: #363636;
+    color: #e7e7e7;
+    --sub-text-color: #959595;
+    --link-color: #44759a;
 }
 
 @media print {
@@ -347,7 +350,6 @@ body {
     text-transform: uppercase;
     font-size: 1.6rem;
     text-align: center;
-    color: var(--main-text-color);
 }
 
 .header__position {
