@@ -73,7 +73,7 @@ const data = {
         skills: {
             title: 'Технічні навики',
             list: [
-                'HTML / HTML5 / CSS / CSS3 / SASS / SVG / БЕМ / Flexboxes / Grid / Animation / Bootstrap / Material Design / оптимізація графіки / Cross-browser compatibility (IE, iphone)',
+                'HTML / HTML5 / CSS / CSS3 / SASS / SVG / БЕМ / Flexboxes / Grid / Animation / Bootstrap / Material Design / graphics optimization / Cross-browser compatibility (IE, iphone)',
                 'JavaScript, ES6, React JS, Redux, Vuejs, Vuex',
                 'Node.js, Express.js, MongoDB',
                 'GIT, Bitbucket, Gulp, Webpack, Npm, Yarn',
