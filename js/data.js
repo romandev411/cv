@@ -250,7 +250,7 @@ const data = {
             textTime: '6/7/2019 ',
             robotTime: '6-7-2019 '
         },
-        name: 'Роман Юрченко',
+        name: 'Roman Yurchenko',
         position: 'Front-end web developer',
         aside: {
             title: 'Contacts',
