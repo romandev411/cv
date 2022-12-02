@@ -74,7 +74,7 @@ const data = {
             title: "Технічні навики",
             list: [
                 "HTML / HTML5 / CSS / CSS3 / SASS / SVG / БЕМ / Flexboxes / Grid / Animation / Bootstrap / Material Design / graphics optimization / Cross-browser compatibility (IE, iphone)",
-                "JavaScript, ES6, React JS, Redux, Typescript, Next",
+                "JavaScript, ES6, React JS, Redux, Typescript, Next, VueJS, Vuex",
                 "Node.js, Express.js, MongoDB",
                 "GIT, Bitbucket, Gulp, Webpack, Npm, Yarn",
                 "Figma, Adobe Photoshop",
@@ -309,7 +309,7 @@ const data = {
             title: "Technical skills",
             list: [
                 "HTML / HTML5 / CSS / CSS3 / SASS / SVG / BEM / Flexboxes / Grid / Animation / Bootstrap / Material Design / graphics optimization / Cross-browser compatibility (IE, iphone)",
-                "JavaScript, ES6, React JS, Redux, Typescript, Next",
+                "JavaScript, ES6, React JS, Redux, Typescript, Next, VueJS, Vuex",
                 "Node.js, Express.js, MongoDB",
                 "GIT, Bitbucket, Gulp, Webpack, Npm, Yarn",
                 "Figma, Adobe Photoshop",
