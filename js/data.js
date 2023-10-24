@@ -1,9 +1,9 @@
 const skills = [
-  'HTML / HTML5 / CSS / CSS3 / SASS / SVG / BEM / Flexboxes / Grid / Animation / Bootstrap / Material Design / graphics optimization / Cross-browser compatibility (IE, iphone)',
-  'JavaScript, ES6, React JS, Redux, Typescript, Next, VueJS, Vuex, Nuxt',
+  'HTML / HTML5 / CSS / CSS3 / SASS / SVG / BEM / Animation(GSAP, AOS) / Tailwind, Bootstrap / Material Design / graphics optimization / Cross-browser compatibility (IE, iphone)',
+  'JavaScript, ES6, ReactJs, Redux, Typescript, Next, VueJS, Vuex, Nuxt',
   'Node.js, Express.js, MongoDB',
   'REST, GraphQL',
-  'GIT, Bitbucket, Gulp, Webpack, Npm, Yarn',
+  'GIT, Gulp, Webpack, Npm, Yarn',
   'Figma, Adobe Photoshop',
   'JIRA, Scrum',
 ];
