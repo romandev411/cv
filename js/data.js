@@ -167,7 +167,7 @@ const data = {
       list: [
         {
           title: 'English',
-          level: 'A2',
+          level: 'B1',
         },
       ],
     },
@@ -185,7 +185,7 @@ const data = {
           },
           qualications: {
             title: 'Кваліфікації',
-            text: 'Англійська мова - A2',
+            text: 'Англійська мова - B1',
           },
           degree: {
             title: '',
@@ -409,7 +409,7 @@ const data = {
       list: [
         {
           title: 'English',
-          level: 'A2',
+          level: 'B1',
         },
       ],
     },
@@ -427,7 +427,7 @@ const data = {
           },
           qualications: {
             title: 'Qualifications',
-            text: 'English language - A2',
+            text: 'English language - B1',
           },
           degree: {
             title: '',
